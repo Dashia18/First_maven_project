@@ -2,30 +2,30 @@
 <testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Command line suite" duration-ms="77" started-at="2016-12-08T11:10:40Z" finished-at="2016-12-08T11:10:40Z">
+  <suite name="Command line suite" duration-ms="74" started-at="2016-12-15T15:15:18Z" finished-at="2016-12-15T15:15:18Z">
     <groups>
     </groups>
-    <test name="Command line test" duration-ms="77" started-at="2016-12-08T11:10:40Z" finished-at="2016-12-08T11:10:40Z">
+    <test name="Command line test" duration-ms="74" started-at="2016-12-15T15:15:18Z" finished-at="2016-12-15T15:15:18Z">
       <class name="com.mycompany.app.CalculatorTest">
-        <test-method status="PASS" signature="testSumOperation()" name="testSumOperation" duration-ms="4" started-at="2016-12-08T14:10:40Z" finished-at="2016-12-08T14:10:40Z">
+        <test-method status="PASS" signature="testSumOperation()" name="testSumOperation" duration-ms="3" started-at="2016-12-15T18:15:18Z" finished-at="2016-12-15T18:15:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSumOperation -->
-        <test-method status="PASS" signature="testDivZeroOperation()" name="testDivZeroOperation" duration-ms="3" started-at="2016-12-08T14:10:40Z" finished-at="2016-12-08T14:10:40Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testDivZeroOperation -->
-        <test-method status="PASS" signature="testDiv2Operation()" name="testDiv2Operation" duration-ms="4" started-at="2016-12-08T14:10:40Z" finished-at="2016-12-08T14:10:40Z">
+        <test-method status="PASS" signature="testDiv2Operation()" name="testDiv2Operation" duration-ms="4" started-at="2016-12-15T18:15:18Z" finished-at="2016-12-15T18:15:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testDiv2Operation -->
-        <test-method status="PASS" signature="testDiv1Operation()" name="testDiv1Operation" duration-ms="4" started-at="2016-12-08T14:10:40Z" finished-at="2016-12-08T14:10:40Z">
+        <test-method status="PASS" signature="testDivZeroOperation()" name="testDivZeroOperation" duration-ms="3" started-at="2016-12-15T18:15:18Z" finished-at="2016-12-15T18:15:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDivZeroOperation -->
+        <test-method status="PASS" signature="testDiv1Operation()" name="testDiv1Operation" duration-ms="4" started-at="2016-12-15T18:15:18Z" finished-at="2016-12-15T18:15:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testDiv1Operation -->
       </class> <!-- com.mycompany.app.CalculatorTest -->
       <class name="com.mycompany.app.AppTest">
-        <test-method status="PASS" signature="testApp()" name="testApp" duration-ms="9" started-at="2016-12-08T14:10:40Z" finished-at="2016-12-08T14:10:40Z">
+        <test-method status="PASS" signature="testApp()" name="testApp" duration-ms="10" started-at="2016-12-15T18:15:18Z" finished-at="2016-12-15T18:15:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testApp -->
