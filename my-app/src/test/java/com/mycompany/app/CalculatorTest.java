@@ -1,24 +1,20 @@
 package com.mycompany.app;
-
-import junit.framework.TestCase;
-//import org.testng.annotations.Test;
-
 import org.junit.*;
-//import junit.framework.Test;
-//import junit.framework.TestSuite;
-//import static org.junit.Assert.*;
+
+import java.io.InputStream;
 
 /**
  * Unit test for simple CalculatorTest.
  * Created by Daria Serebryakova on 08.12.2016.
  */
-public class CalculatorTest extends  TestCase{
+public class CalculatorTest {
 //    Calculator calc = new Calculator();
+    InputStream is = getClass().getResourceAsStream( "/test.properties" );
 
     @Test
     public void testSumOperation(){
-//        assert(5 == Calculator.sum(5,0)): "sum works incorrect";
-        assertEquals("5+5=10",10,Calculator.sum(5,5));
+        assert(5 == Calculator.sum(5,0)): "sum works incorrect";
+
     }
     public void testDiv1Operation(){
         assert(1 == Calculator.div(5,5)): "div works incorrect";
@@ -26,10 +22,10 @@ public class CalculatorTest extends  TestCase{
     }
     public void testDiv2Operation(){
 
-//        assert(10 == Calculator.div(5,5)): "div works incorrect";
+        assert(10 == Calculator.div(5,5)): "div works incorrect";
     }
     public void testDivZeroOperation(){
-//        assert(10 == Calculator.div(5,0)): "div works incorrect - zero";
+        assert(10 == Calculator.div(5,0)): "div works incorrect - zero";
 
     }
 
