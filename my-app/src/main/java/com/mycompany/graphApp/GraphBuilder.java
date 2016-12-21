@@ -11,24 +11,29 @@ import edu.uci.ics.jung.graph.util.EdgeType;
 public class GraphBuilder {
     public static void sparseMultigraphBuild() {
 
-        Graph<Integer, String> graph = new SparseMultigraph<Integer, String>();
+        Graph<MyVertex, MyEdge> graph = new SparseMultigraph<MyVertex, MyEdge>();
 
-        graph.addVertex((Integer)1);
-        graph.addVertex((Integer)2);
-        graph.addVertex((Integer)3);
-        graph.addVertex((Integer)4);
-        graph.addVertex((Integer)5);
-        graph.addVertex((Integer)6);
-        graph.addVertex((Integer)7);
+        MyVertex v1 = new MyVertex(1);
+        MyVertex v2 = new MyVertex(2);
+        MyVertex v3 = new MyVertex(3);
+        MyVertex v4 = new MyVertex(4);
+        MyVertex v5 = new MyVertex(5);
 
-        graph.addEdge("Edge-A", 1, 2, EdgeType.DIRECTED);
-        graph.addEdge("Edge-B", 2, 3, EdgeType.DIRECTED);
-        graph.addEdge("Edge-C", 3, 2, EdgeType.DIRECTED);
-        graph.addEdge("Edge-D", 1, 5, EdgeType.DIRECTED);
-        graph.addEdge("Edge-E", 6, 7, EdgeType.DIRECTED);
-        graph.addEdge("Edge-F", 7, 3, EdgeType.DIRECTED);
+        graph.addVertex(v1);
+        graph.addVertex(v2);
+        graph.addVertex(v3);
+        graph.addVertex(v4);
+        graph.addVertex(v5);
 
-        System.out.println("The graph g = " + graph.toString());
+
+        graph.addEdge(new MyEdge("Edge-A"), v1, v2, EdgeType.DIRECTED);
+        graph.addEdge(new MyEdge("Edge-B"), v2, v3, EdgeType.DIRECTED);
+        graph.addEdge(new MyEdge("Edge-C"), v3, v2, EdgeType.DIRECTED);
+        graph.addEdge(new MyEdge("Edge-D"), v1, v5, EdgeType.DIRECTED);
+        graph.addEdge(new MyEdge("Edge-E"), v4, v3, EdgeType.DIRECTED);
+        graph.addEdge(new MyEdge("Edge-F"), v2, v5, EdgeType.DIRECTED);
+
+        System.out.println("graph: \n" + graph.toString());
 
     }
 }
