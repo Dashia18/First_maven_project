@@ -1,4 +1,5 @@
 .idea
-my-app/target/classes/*
+my-app/target/classes/com/mycompany/*
+my-app/target/test-classes/com/mycompany/*
 *.iml
 *.class
