@@ -5,9 +5,38 @@ package com.mycompany.graphApp;
  */
 public class MyEdge {
     private String edge;
+    private double capacity;
+    private double weight;
 
     public MyEdge(String edge){
         this.edge = edge;
+    }
+
+    public MyEdge(String edge, double weight) {
+        this.edge = edge;
+        this.weight = weight;
+    }
+
+    public MyEdge(String edge, double capacity, double weight) {
+        this.edge = edge;
+        this.capacity = capacity;
+        this.weight = weight;
+    }
+
+    public double getCapacity() {
+        return capacity;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setCapacity(double capacity) {
+        this.capacity = capacity;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
     }
 
     @Override

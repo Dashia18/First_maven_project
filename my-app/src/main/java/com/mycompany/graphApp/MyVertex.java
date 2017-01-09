@@ -11,7 +11,8 @@ public class MyVertex {
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "V"+ node;
     }
 

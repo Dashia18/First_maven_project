@@ -5,6 +5,7 @@ package com.mycompany.graphApp;
  */
 public class Runner {
     public static void main(String[] args) {
+
         GraphBuilder.sparseMultigraphBuild();
     }
 }
