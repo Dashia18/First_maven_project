@@ -1,12 +1,20 @@
 package com.mycompany.graphApp;
 
+import edu.uci.ics.jung.algorithms.flows.EdmondsKarpMaxFlow;
 import edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath;
+import edu.uci.ics.jung.graph.DirectedGraph;
+import edu.uci.ics.jung.graph.DirectedSparseMultigraph;
 import edu.uci.ics.jung.graph.Graph;
 import edu.uci.ics.jung.graph.SparseMultigraph;
 import edu.uci.ics.jung.graph.util.EdgeType;
+
+import org.apache.commons.collections15.Factory;
 import org.apache.commons.collections15.Transformer;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 
 /**
  * Created by Daria Serebryakova on 21.12.2016.
@@ -15,7 +23,7 @@ import java.util.List;
 class GraphBuilder {
      static void sparseMultigraphBuild() {
 
-        Graph<MyVertex, MyEdge> graph = new SparseMultigraph<MyVertex, MyEdge>();
+         DirectedGraph<MyVertex, MyEdge> graph = new DirectedSparseMultigraph<MyVertex, MyEdge>();
 
         MyVertex v1 = new MyVertex(1);
         MyVertex v2 = new MyVertex(2);
@@ -29,19 +37,21 @@ class GraphBuilder {
         graph.addVertex(v4);
         graph.addVertex(v5);
 
-        MyEdge edgeA = new MyEdge("Edge-A",1);
-        MyEdge edgeB = new MyEdge("Edge-B", 3);
-        MyEdge edgeC = new MyEdge("Edge-C", 4);
-        MyEdge edgeD = new MyEdge("Edge-D", 3);
-        MyEdge edgeE = new MyEdge("Edge-E", 2);
-        MyEdge edgeF = new MyEdge("Edge-F",1);
+        MyEdge edgeA = new MyEdge("Edge-A",1,96);
+        MyEdge edgeB = new MyEdge("Edge-B", 3,96);
+        MyEdge edgeC = new MyEdge("Edge-C", 4,96);
+        MyEdge edgeD = new MyEdge("Edge-D", 3,192);
+        MyEdge edgeE = new MyEdge("Edge-E", 2,96);
+        MyEdge edgeF = new MyEdge("Edge-F",1,96);
+        MyEdge edgeG = new MyEdge("Edge-G",1,96);
 
         graph.addEdge(edgeA, v1, v2, EdgeType.DIRECTED);
         graph.addEdge(edgeB, v2, v3, EdgeType.DIRECTED);
         graph.addEdge(edgeC, v3, v2, EdgeType.DIRECTED);
         graph.addEdge(edgeD, v1, v5, EdgeType.DIRECTED);
-        graph.addEdge(edgeE, v4, v3, EdgeType.DIRECTED);
+        graph.addEdge(edgeE, v4, v5, EdgeType.DIRECTED);
         graph.addEdge(edgeF, v2, v5, EdgeType.DIRECTED);
+        graph.addEdge(edgeG, v3, v4, EdgeType.DIRECTED);
 
 
 
@@ -75,6 +85,34 @@ class GraphBuilder {
 
 
 
-    }
+
+
+         //Max-Flow
+         Transformer<MyEdge, Double> capTransformer =
+                 new Transformer<MyEdge, Double>(){
+                     public Double transform(MyEdge link) {
+                         return link.getCapacity();
+                     }
+                 };
+         Map<MyEdge, Double> edgeFlowMap = new HashMap<MyEdge, Double>();
+         // This Factory produces new edges for use by the algorithm
+         Factory<MyEdge> edgeFactory = new Factory<MyEdge>() {
+             public MyEdge create() {
+                 return new MyEdge(1.0, 1.0);
+             }
+         };
+
+         EdmondsKarpMaxFlow<MyVertex, MyEdge> alg =
+                 new EdmondsKarpMaxFlow(graph, v1,v5, capTransformer,edgeFlowMap,edgeFactory);
+
+         alg.evaluate();
+         System.out.println("The max flow is: " + alg.getMaxFlow());
+         System.out.println(alg.getFlowGraph());
+         System.out.println("The edge set is: " + alg.getMinCutEdges().toString());
+
+
+
+
+     }
 
 }

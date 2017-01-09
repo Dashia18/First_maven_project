@@ -17,12 +17,15 @@ public class MyEdge {
         this.weight = weight;
     }
 
-    public MyEdge(String edge, double capacity, double weight) {
+    public MyEdge(String edge, double weight, double capacity) {
         this.edge = edge;
         this.capacity = capacity;
         this.weight = weight;
     }
-
+    public MyEdge(double weight, double capacity) {
+        this.capacity = capacity;
+        this.weight = weight;
+    }
     public double getCapacity() {
         return capacity;
     }
