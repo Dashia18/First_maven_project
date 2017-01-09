@@ -1,7 +1,6 @@
 package com.mycompany.app;
 
 import java.io.*;
-import java.util.Scanner;
 
 /**
  * Hello world!
@@ -36,6 +35,7 @@ public class App
 
         sb.toString();
         System.out.println(sb);
+
 
 
     }
